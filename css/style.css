@@ -1,0 +1,1116 @@
+@charset "utf-8";
+
+/*全体設定
+---------------------------------------------------------------------------*/
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #333;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "MS Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 16px;
+	line-height: 2;
+	background: #fff;
+}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form,select,input,textarea {margin: 0px;padding: 0px;font-size: 100%;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+
+footer {
+  background: lightcyan;
+  text-align: center;
+}
+
+li,ul{
+  list-style: none;/*〇消す*/
+}
+
+/*slideshow---------------------------------------------------------------*/
+
+/* imgのみ */
+.item1 {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-animation: anime 10s 0s infinite;
+  animation: anime 10s 0s infinite;
+}
+
+.item1:nth-of-type(2) {
+  /* -webkit-animation-delay: 10s; */
+  -webkit-animation-delay: 3s;
+  /* animation-delay: 10s; */
+  animation-delay: 3s;
+}
+
+.item1:nth-of-type(3) {
+  /* -webkit-animation-delay: 20s; */
+  -webkit-animation-delay: 7s;
+  /* animation-delay: 20s; */
+  animation-delay: 7s;
+}
+
+/* ふわっとアニメーション */
+@keyframes anime {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes anime {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/*大画面　header =============================================*/
+@media screen and (min-width: 600px) {
+  #btn {
+    display: none;
+  }
+
+/*header*/
+.header {
+  /*position: fixed;左上に固定*/
+  width: 100%;
+  height: 150px;
+  background: #fff;
+  top: 0;
+}
+
+  main {
+    position: relative;
+  }
+
+  /*ロゴ　立花漢方*/
+  header #logo {
+    width: 350px;
+    position: absolute;
+    left: 15%;
+    top: 30px;
+  }
+
+  /*TELブロック*/
+  header address {
+    font-style: normal;
+    margin-top: 90px;
+    margin-right: 10%;
+    text-align: right;
+    font-size: 70%;
+    line-height: 1.5;
+  }
+  /*TELブロック*/
+  header address .tel {
+    color: #7ebb77;
+    font-size: 250%;
+  }
+  /*================================================================*/
+  nav {
+    display: flex;
+    justify-content: center; /* メニューアイテムを中央揃えに */
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .menu-item a {
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+    text-decoration: none; /* リンクの下線を非表示 */
+    margin: 0 8px 2px;
+    border: 2px solid rgb(99, 190, 92);
+    border-radius: 10px 10px 10px 10px;/*角まるめ*/
+    background: #c0f9ba;
+    color: #000;
+  }
+
+  /* メニューアイテムのホバースタイル */
+  .menu-item:hover .drop-menu-list,
+  .drop-menu-item:hover {
+    opacity: 1;/*  不透明度を最大に */
+    transition: opacity 1s, visibility 1s;/*  アニメーション設定*/ 
+    visibility: visible;/*  下層メニューを表示 */
+    z-index: 50;
+  }
+
+    /* ドロップダウンメニュー */
+    .drop-menu {
+      position: relative;
+    }
+    .drop-menu-item {
+      position: relative;
+    }
+
+    .drop-menu-list {
+      left: 0;
+      opacity: 0;/*  不透明度を最小に アニメーションのため*/
+      position: absolute;
+      top: 100%;
+      transition: opacity .3s, visibility .3s; /* アニメーション設定 */
+      visibility: hidden;/*  下層メニューを非表示 */
+      width: max-content;
+    }
+    
+    .drop-menu-list a{
+      background-color: #ece7f4;
+    }
+
+
+}/*大画面header  @media screen*/
+
+/*小画面　header==============================================*/
+@media screen and (max-width: 599px) {
+
+  /*header*/
+  .header {
+    position: fixed;/*左上に固定*/
+    width: 100%;
+    height: 150px;
+    background: #fff;
+    top: 0;
+    z-index: 50;
+  }
+
+  main {
+    position: relative;
+    top:150px ;
+  }
+
+  /*ロゴ　立花漢方*/
+  header #logo {
+    width: 350px;
+    position: absolute;
+    left: 2%;
+    top: 10px;
+  }
+  .addressham {
+    display: flex;/*横並び*/
+    justify-content: center;
+    /* position: absolute; */
+    margin-top: 80px;
+  }
+  /*TELブロック*/
+  header address {
+    font-style: normal;
+    text-align: center;
+    font-size: 0.7em;
+    line-height: 1.5;
+  }
+  /*TELブロック*/
+  header address .tel {
+    color: #7ebb77;
+    font-size: 2em;
+    padding-left: 35px;
+  }
+
+  /*3本線枠 */
+  #btn {
+    width: 60px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f09814;
+    margin-left: 10px;
+    border: 1px solid black;
+    background: rgb(190, 238, 149);
+    border-radius: 5px 5px 5px 5px;/*角まるめ*/
+  }
+  #btn span {
+    display: block;/*縦並び*/
+    background-color: #333;
+    width: 40px;
+    height: 4px;
+    transition: all 0.5s ease;
+  }
+
+  #btn.on span {
+    background-color: #333;
+  }
+  #btn.on span:nth-of-type(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  #btn.on span:nth-of-type(2) {
+    transform: scale(0);
+  }
+  #btn.on span:nth-of-type(3) {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+
+  /*3本線　text*/
+  .hamburger__text {
+    display: block;/*縦並び*/
+    top:12px;
+    background: transparent;/*要素を透明*/
+    color: #3d4b36;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;/*文字を大文字に変換*/
+  }
+
+  /*--------------------------------------------------------------------*/
+
+  /* menu */
+  nav {
+    display: flex;
+    justify-content: center; /* メニューアイテムを中央揃えに */
+    position: fixed;
+    width: 100%;
+    top: 150px;
+    left: -110%;/*左隠す*/
+  }
+
+  nav.on {
+    left: 0%;/*出現*/
+    transition: 0.5s;
+  }
+
+  .menu-item a {
+    cursor: pointer;
+    width: 86px;
+    display: flex;
+    align-items: center;
+    height:50px;
+    justify-content: center;
+    text-decoration: none; /* リンクの下線を非表示 */
+    margin: 2px;
+    border: 2px solid rgb(99, 190, 92);
+    border-radius: 10px 10px 10px 10px;/*角まるめ*/
+    background: #c0f9ba;
+    color: #000;
+    text-align: center;
+    font-size: 17px;
+  }
+
+  /* メニューアイテムのホバースタイル */
+  .menu-item:hover .drop-menu-list,
+  .drop-menu-item:hover {
+    opacity: 1;/*  不透明度を最大に */
+    transition: opacity 1s, visibility 1s;/*  アニメーション設定*/ 
+    visibility: visible;/*  下層メニューを表示 */
+  }
+
+  /* ドロップダウンメニュー */
+  .drop-menu {
+    position: relative;
+  }
+  .drop-menu-item {
+    position: relative;
+  }
+
+  .drop-menu-list {
+    left: 0;
+    opacity: 0;/*  不透明度を最小に アニメーションのため*/
+    position: absolute;
+    top: 100%;
+    transition: opacity .3s, visibility .3s; /* アニメーション設定 */
+    visibility: hidden;/*  下層メニューを非表示 */
+    width: max-content;
+  }
+
+  .drop-menu-list a{
+    background-color: #ece7f4;
+  }
+    
+
+}/*小画面　header  @media screen*
+
+/*大画面　body =============================================*/
+@media screen and (min-width: 600px) {
+  .face{
+    display: flex;
+  }
+  
+  .exp1{
+    /* width: 500px; */
+    width: 500px;
+    margin-left: auto;
+    margin-right: 20px;
+    /* background-color: #e5e5e5; */
+    color: #b63f7b;
+    text-align:left;
+    line-height: 1.8;
+  }
+  .exp2{
+    width: 200px;
+    margin-left: 0;
+    margin-right: auto;
+    background-color: #ceec92;
+    text-align: left;
+    padding: 10px 30px 0;
+    border-radius: 10px;
+    
+  }
+  .exp2 a{
+    color: blue;
+    font-weight: bold;
+  }
+
+  /*slideshow---------------------------------------------------------------*/
+  .slideBox {
+    width: 680px;
+    height:600px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto 10px auto;
+  }
+
+  /*診療時間テーブル（ta1）-------------------------------------------------*/
+  .ta1 caption {
+    border: 1px solid #b7b7b7;
+    border-bottom: none;
+    text-align: center;
+    background: #fffbe3;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+  }
+  /*ta1設定*/
+  .ta1 {
+    table-layout: fixed;
+    width: 75%;
+    /* margin-bottom: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background: #fff;
+    color: #333;
+  }
+  .ta1, .ta1 td, .ta1 th {
+    /* word-break: break-all; */
+    border: 1px solid #b7b7b7;
+    padding: 10px;
+  }
+  /*左列*/
+  .ta1 th {
+    background: #fffbe3;
+    text-align: center;
+    width: 20%;
+  }
+  /*左列以外*/
+  .ta1 td {
+    text-align: center;
+  }
+  .ta10 {
+    text-align: center;
+    line-height: 2;	
+  }
+
+  /*テーブル（ta2）医院概要。
+  ---------------------------------------------------------------------------*/
+  .ta2 caption {
+    border: 1px solid #b7b7b7;
+    border-bottom: none;
+    text-align: center;
+    background: #fffbe3;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+  }
+  /*ta2設定*/
+  .ta2 {
+    table-layout: fixed;
+    width: 75%;
+    /* margin-bottom: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background: #fff;
+    color: #333;
+  }
+  .ta2, .ta2 td, .ta2 th {
+    /* word-break: break-all; */
+    border: 1px solid #b7b7b7;
+    padding: 10px;
+  }
+  /*左列*/
+  .ta2 th {
+    background: #fffbe3;
+    text-align: center;
+    width: 20%;
+  }
+  /*完全予約制*/
+  .ta40{
+    color: #f04f14;
+  }
+  /* 院内写真----------------------------------------------------------------- */
+  .sya{
+    display: flex;
+  }
+  .innaisya{
+    width: 75%;
+    margin: 0 auto;
+  }
+  .col{
+    width: 100%;
+    margin: 10px;
+  }
+	/* アクセス--------------------------------------------------------------- */
+  .turu {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .map-wrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .map-wrapper iframe {
+    text-align: center;
+  }
+  /* 駐車場------------------------------- */
+  .chu {
+    text-align: center;
+  }
+/*ご挨拶１--------------------------------------------------------------------*/
+.ai220423{
+	width: 75%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ai220423 .pic1{
+	float: right;
+	width: 30%;
+}/*画像廻込*/
+.ai220423  .aisatu2{
+	margin-top: 30px;
+	vertical-align: middle;/*中心揃え*/
+	display: inline-block;/*中心揃え*/
+}
+.ai220423 .pic2{
+	float: left;
+	width: 23%;
+	}/*画像廻込*/
+.ai220423 .pic3{
+	float: left;
+	width: 20%;
+}/*画像廻込*/
+.ai220423 .aisatu3{
+	margin-top: 30px;
+	vertical-align: middle;/*中心揃え*/
+	display: inline-block;/*中心揃え*/
+}
+.ai220423 .honsetumei{
+	margin-left: 30%;
+}
+.ai220423 .aisatu4{
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin: 0 auto;
+}
+.ai220423 .aisatu4 p{
+	line-height: 2;
+}
+.ai220423 .aisatu4 .ai22042302{
+	font-size: 24px;
+  padding: 8px;
+  border-bottom: 2px #0bd solid;
+  font-weight: normal;
+}
+/*ご挨拶２-----------------------------------------------------------------------*/
+.ai220417{
+	width: 75%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+figure {
+	float: right;
+	width: 30%;
+}/*画像廻込*/
+.ai220417 .aisatu11 p{
+	line-height: 2;	
+}
+.ai220417 ul {
+	margin-top: 20px;
+}
+.ai220417 .ai4418{
+	border-bottom: double 4px #0bd;
+	padding-bottom: 20px;
+}
+.ai220417 .ai4415{
+	color: #f04f14;
+	font-weight: bold;
+}
+.ai220417 .ai4416{
+	color: #f0145a;
+	font-weight: bold;
+}
+.ai220417 .ai4417{
+	color: #3114f0;
+	font-weight: bold;
+}
+.ai220417 .aisatu11 li {
+	list-style-type: none;
+	padding-left: 1em;
+	text-indent: -1em;
+}/*tab*/
+.ai220417 .namae4415 {
+	padding-top: 10px;
+	text-align: right;
+}
+.ai220417 .aisatu12{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 20px 0 20px;
+	text-align: center;
+	color: #fff;
+	background-color: #5b9f53;
+	border-radius: 10px;
+}
+.ai220417 a{
+	color: #fff;
+}
+ /* 閑話・お知らせ（親）--------------------------- */
+  .os1 {
+    margin: 20px;
+  }
+	.os2 caption {
+		border: 1px solid #b7b7b7;
+		border-bottom: none;
+		text-align: center;
+		background: #fffbe3;
+		color: #333;
+		font-weight: bold;
+		padding: 10px;
+	}
+	.os2 {
+		table-layout: fixed;
+		width: 75%;
+		/* margin-bottom: 20px; */
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		background: #fff;
+		color: #333;
+	}
+	.os2, .os2 td, .os2 th {
+		/* word-break: break-all; */
+		border: 1px solid #b7b7b7;
+		padding: 10px;
+	}
+	/*左列*/
+	.os2 th {
+		background: #fffbe3;
+		text-align: center;
+		width: 20%;
+	}
+	/*左列以外*/
+	.os2 td {
+		text-align: left;
+	}
+  	/* 閑話 20220420a-------------------------- */
+	.kanwa20220420a {
+		width: 75%;
+		margin-top: 3%;
+		margin-left: auto;
+		margin-right: auto;	
+	}
+	.kanwa20220420a .box1 h2{
+		font-size: 24px;
+		color:blue ;
+	}
+	.kanwa20220420a .box2{
+		margin-top: 3%;
+		margin-left: 3%;
+		background-color:rgba(174, 255, 0, 0.155);
+	}
+	.kanwa20220420a .box3{
+		margin-top: 3%;
+		margin-left: 3%;
+		background-color:rgba(234, 255, 0, 0.318);
+	}
+	.kanwa20220420a .r{
+		color: red;
+		}
+	.kanwa20220420a .g{
+		color: green;
+		font-weight: bold;
+		}
+  	/* 閑話 20210713--------------------------- */
+	.kanwa{
+		width: 75%;
+		margin-top: 5%;
+		margin-left: auto;
+		margin-right: auto;	
+		display: grid;
+		grid-template-columns: 0.8fr 2fr;
+		grid-template-rows: 1fr 1fr 1fr;
+	}
+	.kanwa .box3{
+    grid-row: 2;
+    grid-column: 1/3;
+	}
+  .kanwa .box4{
+    grid-row: 3;
+    grid-column: 1/3;
+	}
+  .kanwa .box1 h2{
+    font-size: 24px;
+		color:blue ;
+	}
+	/* 閑話 20210213------------------------------- */
+	.kanwa20210213 {
+		width: 75%;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;	
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+	}
+	.kanwa20210213 .box1 {
+		margin: 0 5% 0;
+	}
+	.kanwa20210213 .box1 h2{
+		font-size: 15px;
+		color: blue
+	}
+	.kanwa20210213btn{
+		text-align: right;
+		margin:10px 50px;
+	}
+  		 /* お知らせ（子）（画像でなく文章説明のケース）---------------------- */
+	.os20 caption{
+		border: 1px solid #b7b7b7;
+		border-bottom: none;
+		text-align: center;
+		background: #fffbe3;
+		color: #333;
+		font-weight: bold;
+		padding: 10px;
+	}
+	.os20 {
+		table-layout: fixed;
+		width: 75%;
+		/* margin-bottom: 20px; */
+		margin-left: auto;
+		margin-right: auto;
+    margin-top: 50px;
+		text-align: left;
+		background: #fff;
+		color: #333;
+	}
+	.os20, .os20 td, .os20 th {
+		/* word-break: break-all; */
+		border: 1px solid #b7b7b7;
+		padding: 10px;
+	}
+	/*左列*/
+	.os20 th {
+		background: #fffbe3;
+		text-align: center;
+		width: 20%;
+	}
+	/*左列以外*/
+	.os20 td {
+		text-align: left;
+	}
+
+
+}/*大画面header  @media screen*/
+
+/*  小画面body================================================*/
+@media screen and (max-width: 599px) {
+  /*ホーム*/
+  .exp1{
+    margin: 10px;
+    background-color: #daf6c7;
+    color: #1131b2;
+    line-height: 1.2;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .exp2{
+    margin: 10px;
+    background-color: #edf4ba;
+    padding: 10px;
+    border-radius: 10px;
+    
+  }
+  .exp2 a{
+    color: blue;
+    font-weight: bold;
+  }
+
+  /*slideshow---------------------------------------------------------------*/
+  .slideBox {
+    width: auto;
+    height:300px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /*診療時間　テーブル（ta1）-------------------------------------------------*/
+  /*テーブル１行目*/
+  .ta1 caption {
+    border: 1px solid #b7b7b7;
+    border-bottom: none;
+    text-align: center;
+    background: #fffbe3;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  /*ta1設定*/
+  .ta1 {
+    table-layout: fixed;
+    width: 75%;
+    /* margin-bottom: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
+    background: #fff;
+    color: #333;
+  }
+  .ta1, .ta1 td, .ta1 th {
+    /* word-break: break-all; */
+    border: 1px solid #b7b7b7;
+    /* padding: 10px; */
+    text-align: center;
+  }
+  /*左列*/
+  .ta1 th {
+    background: #fffbe3;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+  }
+  /*左列以外*/
+  .ta1 td {
+    text-align: center;
+  }
+  .ta10 {
+    text-align: center;
+    line-height: 2;	
+  }
+  /*テーブル（ta2）医院概要。-------------------------------------------*/
+  .ta2 caption {
+    border: 1px solid #b7b7b7;
+    border-bottom: none;
+    text-align: center;
+    background: #fffbe3;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+  }
+  /*ta2設定*/
+  .ta2 {
+    table-layout: fixed;
+    width: 75%;
+    /* margin-bottom: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background: #fff;
+    color: #333;
+  }
+  .ta2, .ta2 td, .ta2 th {
+    /* word-break: break-all; */
+    border: 1px solid #b7b7b7;
+    padding: 10px;
+  }
+  /*左列*/
+  .ta2 th {
+    background: #fffbe3;
+    text-align: center;
+    width: 20%;
+  }
+  /*完全予約制*/
+  .ta40{
+    color: #f04f14;
+  }
+  /* 院内写真------------------------------- */
+  .sya{
+    display: flex;
+    font-size: 12px;
+  }
+  .innaisya{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .col{
+    width: 100%;
+    margin: 10px;
+  }
+	/* アクセス------------------------------- */
+  .turu {
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 12px;
+  } 
+  .map-wrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .map-wrapper iframe {
+    text-align: center;
+  }
+	/* 駐車場------------------------------- */
+  .chu {
+    text-align: center;
+  }
+/*ご挨拶１-------------------------------------*/
+.ai220423{
+	width: 90%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ai220423 .aisatu4{
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin: 0 auto;
+}
+.ai220423 .aisatu4 p{
+	line-height: 2;
+}
+.ai220423 .aisatu4 .ai22042302{
+	font-size: 24px;
+  padding: 8px;
+  border-bottom: 2px #0bd solid;
+  font-weight: normal;
+}
+/*ご挨拶２-----------------------------------------------------------------------*/
+.ai220417{
+	width: 90%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ai220417 .aisatu11{
+	margin: 20px 20px 0px;
+}
+.ai220417 .aisatu11 p{
+	line-height: 2;	
+}
+.ai220417 .ai4418{
+	border-bottom: double 4px #0bd;
+	padding-bottom: 20px;
+}
+.ai220417 .ai4415{
+	color: #f04f14;
+	font-weight: bold;
+}
+.ai220417 .ai4416{
+	color: #f0145a;
+	font-weight: bold;
+}
+.ai220417 .ai4417{
+	color: #3114f0;
+	font-weight: bold;
+}
+.ai220417 .aisatu11 li {
+	list-style-type: none;
+	padding-left: 1em;
+	text-indent: -1em;
+}/*tab*/
+.ai220417 .namae4415 {
+	padding-top: 50px;
+	text-align: right;
+}
+.ai220417 .aisatu12{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 20px 0 20px;
+	text-align: center;
+	color: #fff;
+	background-color: #5b9f53;
+	border-radius: 10px;
+}
+.ai220417 a{
+	color: #fff;
+}
+	 /* 閑話・お知らせ（親）------------------------------- */
+  .os1 {
+    margin: 20px;
+  }
+	.os2 caption {
+		border: 1px solid #b7b7b7;
+		border-bottom: none;
+		text-align: center;
+		background: #fffbe3;
+		color: #333;
+		font-weight: normal;
+		padding: 10px;
+	}
+	.os2 {
+		table-layout: fixed;
+		width: 100%;
+		/* margin-bottom: 20px; */
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		background: #fff;
+		color: #333;
+	}
+	.os2, .os2 td, .os2 th {
+		/* word-break: break-all; */
+		border: 1px solid #b7b7b7;
+		padding: 5px;
+		font-weight: normal;
+		font-size: 15px;
+	}
+	/*左列*/
+	.os2 th {
+		background: #fffbe3;
+		text-align: center;
+		width: 40%;
+	}
+	/*左列以外*/
+	.os2 td {
+		text-align: left;
+	}
+  	/* 閑話 20220420a------------------------------- */
+	.kanwa20220420a {
+		width: 75%;
+		margin-top: 3%;
+		margin-left: auto;
+		margin-right: auto;	
+		font-size: 12px;
+	}
+	.kanwa20220420a .box1 h2{
+		font-size: 18px;
+		color:blue ;
+	}
+	.kanwa20220420a .box2{
+		margin-top: 3%;
+		margin-left: 3%;
+		background-color:rgba(174, 255, 0, 0.155);
+	}
+	.kanwa20220420a .box3{
+		margin-top: 3%;
+		margin-left: 3%;
+		background-color:rgba(234, 255, 0, 0.318);
+	}
+	.kanwa20220420a .r{
+		color: red;
+		}
+	.kanwa20220420a .g{
+		color: green;
+		font-weight: bold;
+		}
+  	/* 閑話 20210713------------------------------- */
+	.kanwa{
+		width: 75%;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;	
+	}
+	.kanwa .box1 {
+			font-size: 12px;
+		}
+	.kanwa .box3{
+			grid-row: 2;
+			grid-column: 1/3;
+			font-size: 12px;
+		}
+		.kanwa .box4{
+			grid-row: 3;
+			grid-column: 1/3;
+			font-size: 12px;
+		}
+		.kanwa .box1 h2{
+			font-size: 15px;
+			color:blue ;
+	}
+  	/* 閑話 20210213--------------------------- */
+	.kanwa20210213 {
+		width: 75%;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;	
+		/* display: grid; */
+		/* grid-template-columns: 2fr 1fr; */
+		font-size: 12px;
+	}
+	.kanwa20210213 .box1 h2{
+		font-size: 15px;
+		color:blue ;
+	}
+	.kanwa20210213btn{
+		text-align: right;
+		margin:10px 50px;
+	}
+		 /* お知らせ（子）（画像でなく文章説明のケース）------------------------ */
+  .os10 {
+    margin: 20px;
+  }
+	.os20 caption{
+		border: 1px solid #b7b7b7;
+		border-bottom: none;
+		text-align: center;
+		background: #fffbe3;
+		color: #333;
+		font-weight: bold;
+		padding: 10px;
+	}
+	.os20 {
+		table-layout: fixed;
+		width: 100%;
+		/* margin-bottom: 20px; */
+		margin-left: auto;
+		margin-right: auto;
+    margin-top: 50px;
+		text-align: left;
+		background: #fff;
+		color: #333;
+	}
+	.os20, .os20 td, .os20 th {
+		/* word-break: break-all; */
+		border: 1px solid #b7b7b7;
+		font-weight: normal;
+		font-size: 15px;
+	}
+	/*左列*/
+	.os20 th {
+		background: #fffbe3;
+		text-align: center;
+		width: 40%;
+	}
+	/*左列以外*/
+	.os20 td {
+		text-align: left;
+	}
+
+
+} /*小画面 body  @media screen */
